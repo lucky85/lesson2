@@ -9,6 +9,3 @@ class Ball
     answer
   end
 end
-
-bal = Ball.new
-bal.shake
