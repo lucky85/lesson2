@@ -2,7 +2,6 @@ require 'yaml'
 
 class Ball
   ANSWERS = YAML.load_file('answers.yml')
-  
   def shake
     index = rand(ANSWERS.size - 1)
     answer = ANSWERS[index]
