@@ -4,3 +4,15 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 AllCops:
   TargetRubyVersion: 2.4.1
+ClassLength:
+  Max: 130
+Metrics/LineLength:
+  Max: 140
+Metrics/MethodLength:
+  Max: 35
+Metrics/CyclomaticComplexity:
+  Max: 20
+Metrics/PerceivedComplexity:
+  Max: 20
+Metrics/AbcSize:
+  Max: 30
