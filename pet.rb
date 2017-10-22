@@ -12,7 +12,7 @@ class Pet
   end
 
   def game
-    puts "Введіть команду или 'help' для подсказки: "
+    puts "Введите команду или 'help' для подсказки: "
     command = gets.chomp
     case command
     when 'exit'
@@ -32,7 +32,7 @@ class Pet
     when 'watch'
       watch
     else
-      p 'неправильна команда'
+      p 'неправильная команда'
       game
     end
   end
@@ -65,7 +65,11 @@ class Pet
 
   def sleep
     puts 'Вы укладываете ' + @name + ' спать.'
-    @asleep += 5
+    if @asleep - 5 < 0
+      @asleep = 0
+    else
+      @asleep -= 5
+    end
     passage_of_time(5)
   end
 
@@ -77,6 +81,7 @@ class Pet
     else
       @mood = 10
     end
+    passage_of_time(1)
   end
 
   def watch
@@ -110,12 +115,12 @@ class Pet
     @life += time
     @mood -= 2
     @asleep += 1
-    puts 'В желудке у ' + @name + '(а) урчит...' if hungry?
+    puts 'В желудке у ' + @name + ' урчит...' if hungry?
     if @hunger > 0
       @hunger -= 1
       @stuff_in_intestine += 1
     else
-      puts @name + ' проголодался! И убежал ВАС!'
+      puts @name + ' проголодался! И убежал от ВАС!'
       return
     end
     if @stuff_in_intestine >= 10
@@ -125,7 +130,6 @@ class Pet
     if @asleep >= 15
       puts @name + ' очень устал и уснул'
       @asleep = 0
-      passage_of_time(5)
     end
     puts @name + ' подпрыгивает, потому что хочет на горшок...' if poopy?
     if mood?
@@ -136,7 +140,7 @@ class Pet
       puts @name + ' умер от старости'
       return
     end
-    puts "cытость: #{@hunger} // сонливость: #{@asleep} // возраст: #{@life} // радость: #{@mood} // выгуляность: #{@stuff_in_intestine}"
+    puts "cытость: #{@hunger} // сонливость: #{@asleep} // возраст: #{@life} // радость: #{@mood} // выгуляность:): #{@stuff_in_intestine}"
     game
   end
 end
